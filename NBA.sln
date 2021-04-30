@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBA.Web", "NBA.Web\NBA.Web.csproj", "{3CD168B8-BF12-4C84-A3F9-9FA080A0A553}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBA.ApplicationCore", "NBA.ApplicationCore\NBA.ApplicationCore.csproj", "{4D3DC302-A089-433B-988F-30D29B8CA70B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBA.Infrastructure", "NBA.Infrastructure\NBA.Infrastructure.csproj", "{9AC9AD6E-C588-4E0E-BA96-DEF0CF5D6920}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{3CD168B8-BF12-4C84-A3F9-9FA080A0A553}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CD168B8-BF12-4C84-A3F9-9FA080A0A553}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CD168B8-BF12-4C84-A3F9-9FA080A0A553}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D3DC302-A089-433B-988F-30D29B8CA70B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D3DC302-A089-433B-988F-30D29B8CA70B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D3DC302-A089-433B-988F-30D29B8CA70B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D3DC302-A089-433B-988F-30D29B8CA70B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC9AD6E-C588-4E0E-BA96-DEF0CF5D6920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC9AD6E-C588-4E0E-BA96-DEF0CF5D6920}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC9AD6E-C588-4E0E-BA96-DEF0CF5D6920}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC9AD6E-C588-4E0E-BA96-DEF0CF5D6920}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
