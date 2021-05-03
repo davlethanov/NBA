@@ -1,22 +1,19 @@
-﻿using System;
+﻿using NBA.ApplicationCore.Rules;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NBA.ApplicationCore.Models
 {
-    public class Game
+    public class Game : Entity
     {
-        public Guid Id { get; private set; }
-
         public Guid AwayTeamId { get; private set; }
 
         public Guid HomeTeamId { get; private set; }
 
         public DateTime Date { get; private set; }
 
-        public int? AwayTeamScore { get; private set; }
-
-        public int? HomeTeamScore { get; private set; }
+        public Score Score { get; private set; }
 
         protected Game() { }
 
@@ -25,6 +22,13 @@ namespace NBA.ApplicationCore.Models
             AwayTeamId = awayTeamId;
             HomeTeamId = homeTeamId;
             Date = date;
+        }
+
+        public void SetScore(int awayTeamScore, int homeTeamScore)
+        {
+            CheckRule(new FutureGameScoreCannotBeSettedRule(Date));
+
+            Score = new Score(awayTeamScore, homeTeamScore);
         }
     }
 }
