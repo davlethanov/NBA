@@ -4,15 +4,15 @@ using System.Text;
 
 namespace NBA.ApplicationCore.Rules
 {
-    public class PlayerFirstNameCannotBeEmptyRule : IBusinessRule
+    public class FirstNameCannotBeEmptyRule : IBusinessRule
     {
         private readonly string firstName;
 
-        public PlayerFirstNameCannotBeEmptyRule(string firstName)
+        public FirstNameCannotBeEmptyRule(string firstName)
         {
             this.firstName = firstName;
         }
-        public string Message => "Player first name cannot be empty";
+        public string Message => "First name cannot be empty";
 
         public bool IsBroken() => string.IsNullOrEmpty(firstName);
     }

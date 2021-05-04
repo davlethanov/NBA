@@ -21,11 +21,11 @@ namespace NBA.ApplicationCore.Models
         public Player(string firstName, string secondName, DateTime birthDate, Guid? teamId = null, int? number = null)
             : base()
         {
-            CheckRule(new PlayerFirstNameCannotBeEmptyRule(firstName));
-            CheckRule(new PlayerSecondNameCannotBeEmptyRule(secondName));
+            CheckRule(new FirstNameCannotBeEmptyRule(firstName));
+            CheckRule(new SecondNameCannotBeEmptyRule(secondName));
             CheckRule(new PlayerAgeMustBeOverSettingMinValueRule(birthDate));
             CheckRule(new PlayerWithoutTeamCannotHasNumberRule(teamId, number));
-            CheckRule(new TeamPlayerMustHaveNonNegativeNumberRule(teamId, number));
+            CheckRule(new TeamPlayerMustHaveNumberRule(teamId, number));
 
             FirstName = firstName;
             SecondName = secondName;
@@ -39,14 +39,14 @@ namespace NBA.ApplicationCore.Models
 
         public void SetFirstName(string firstName)
         {
-            CheckRule(new PlayerFirstNameCannotBeEmptyRule(firstName));
+            CheckRule(new FirstNameCannotBeEmptyRule(firstName));
 
             FirstName = firstName;
         }
 
         public void SetSecondName(string secondName)
         {
-            CheckRule(new PlayerSecondNameCannotBeEmptyRule(secondName));
+            CheckRule(new SecondNameCannotBeEmptyRule(secondName));
 
             SecondName = secondName;
         }
@@ -58,17 +58,12 @@ namespace NBA.ApplicationCore.Models
             BirthDate = birthDate;
         }
 
-        public void SetTeam(Guid teamId)
+        public void SetTeamIdentity(Guid teamId, int number)
         {
-            TeamIdentity = new TeamIdentity(teamId, TeamIdentity.Number);
+            TeamIdentity = new TeamIdentity(teamId, number);
         }
 
-        public void SetNumber(int number)
-        {
-            TeamIdentity = new TeamIdentity(TeamIdentity.TeamId, number);
-        }
-
-        public void CancelTeam()
+        public void CancelTeamIdentity()
         {
             TeamIdentity = null;
         }
