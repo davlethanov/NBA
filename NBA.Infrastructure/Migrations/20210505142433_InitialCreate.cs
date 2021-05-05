@@ -47,14 +47,14 @@ namespace NBA.Infrastructure.Migrations
                         principalSchema: "NBA",
                         principalTable: "Teams",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Games_Teams_HomeTeamId",
                         column: x => x.HomeTeamId,
                         principalSchema: "NBA",
                         principalTable: "Teams",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(

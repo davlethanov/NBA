@@ -93,13 +93,13 @@ namespace NBA.Infrastructure.Migrations
                     b.HasOne("NBA.ApplicationCore.Models.Team", "AwayTeam")
                         .WithMany()
                         .HasForeignKey("AwayTeamId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("NBA.ApplicationCore.Models.Team", "HomeTeam")
                         .WithMany()
                         .HasForeignKey("HomeTeamId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.OwnsOne("NBA.ApplicationCore.Models.Score", "Score", b1 =>
