@@ -10,7 +10,7 @@ using NBA.Infrastructure.Data;
 namespace NBA.Infrastructure.Migrations
 {
     [DbContext(typeof(NBADataContext))]
-    [Migration("20210505124008_InitialCreate")]
+    [Migration("20210505140637_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -95,13 +95,13 @@ namespace NBA.Infrastructure.Migrations
                     b.HasOne("NBA.ApplicationCore.Models.Team", "AwayTeam")
                         .WithMany()
                         .HasForeignKey("AwayTeamId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("NBA.ApplicationCore.Models.Team", "HomeTeam")
                         .WithMany()
                         .HasForeignKey("HomeTeamId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.OwnsOne("NBA.ApplicationCore.Models.Score", "Score", b1 =>

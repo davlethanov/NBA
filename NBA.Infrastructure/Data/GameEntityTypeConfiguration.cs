@@ -45,13 +45,13 @@ namespace NBA.Infrastructure.Data
                 .WithMany()
                 .HasForeignKey(g => g.AwayTeamId)
                 .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(g => g.HomeTeam)
                .WithMany()
                .HasForeignKey(g => g.HomeTeamId)
                .IsRequired()
-               .OnDelete(DeleteBehavior.Restrict);
+               .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
