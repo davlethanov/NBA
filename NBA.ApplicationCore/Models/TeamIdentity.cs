@@ -9,6 +9,8 @@ namespace NBA.ApplicationCore.Models
     {
         public Guid TeamId { get; private set; }
 
+        public Team Team { get; private set; }
+
         public int Number { get; private set; }
 
         public TeamIdentity(Guid teamId, int number)

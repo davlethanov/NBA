@@ -9,7 +9,11 @@ namespace NBA.ApplicationCore.Models
     {
         public Guid AwayTeamId { get; private set; }
 
+        public Team AwayTeam { get; private set; }
+
         public Guid HomeTeamId { get; private set; }
+
+        public Team HomeTeam { get; private set; }
 
         public DateTime Date { get; private set; }
 
