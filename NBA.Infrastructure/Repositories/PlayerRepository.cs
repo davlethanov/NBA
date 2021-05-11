@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NBA.ApplicationCore.Models;
+using NBA.Domain.Interfaces;
+using NBA.Domain.Entities;
 using NBA.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
@@ -13,11 +14,16 @@ namespace NBA.Infrastructure.Repositories
         public PlayerRepository(NBADataContext dbContext) : base(dbContext)
         { }
 
-        public override async Task<Player> GetAcync(Guid id)
+        public override async Task<Player> GetAsync(Guid id)
         {
             return await dbContext.Set<Player>()
                 .Include(p => p.TeamIdentity.Team)
                 .FirstOrDefaultAsync(p => p.Id == id);
+        }
+
+        public async Task<Player[]> GetAllAsync()
+        {
+            return await dbContext.Set<Player>().ToArrayAsync();
         }
     }
 }

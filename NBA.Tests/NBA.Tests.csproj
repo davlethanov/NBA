@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NBA.ApplicationCore\NBA.ApplicationCore.csproj" />
+    <ProjectReference Include="..\NBA.Domain\NBA.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,10 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NBA.ApplicationCore.Models;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using System.Text;
 
 namespace NBA.Infrastructure.Data
 {

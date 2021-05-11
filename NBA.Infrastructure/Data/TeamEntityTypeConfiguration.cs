@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NBA.ApplicationCore.Models;
+using NBA.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;

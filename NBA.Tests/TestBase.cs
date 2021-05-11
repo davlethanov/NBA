@@ -1,9 +1,7 @@
 ﻿using FluentAssertions;
-using NBA.ApplicationCore.Exceptions;
-using NBA.ApplicationCore.Rules;
+using NBA.Domain.Exceptions;
+using NBA.Domain.Rules;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace NBA.Tests

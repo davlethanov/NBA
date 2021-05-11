@@ -1,8 +1,6 @@
 using FluentAssertions;
-using NBA.ApplicationCore.Exceptions;
-using NBA.ApplicationCore.Models;
-using NBA.ApplicationCore.Rules;
-using System;
+using NBA.Domain.Entities;
+using NBA.Domain.Rules;
 using Xunit;
 
 namespace NBA.Tests

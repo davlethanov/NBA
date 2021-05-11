@@ -1,0 +1,9 @@
+C:\Projects\NBA\NBA.Domain\obj\Debug\netstandard2.0\NBA.Domain.AssemblyInfoInputs.cache
+C:\Projects\NBA\NBA.Domain\obj\Debug\netstandard2.0\NBA.Domain.AssemblyInfo.cs
+C:\Projects\NBA\NBA.Domain\obj\Debug\netstandard2.0\NBA.Domain.csproj.CoreCompileInputs.cache
+C:\Projects\NBA\NBA.Domain\bin\Debug\netstandard2.0\NBA.Domain.deps.json
+C:\Projects\NBA\NBA.Domain\bin\Debug\netstandard2.0\NBA.Domain.dll
+C:\Projects\NBA\NBA.Domain\bin\Debug\netstandard2.0\NBA.Domain.pdb
+C:\Projects\NBA\NBA.Domain\obj\Debug\netstandard2.0\NBA.Domain.dll
+C:\Projects\NBA\NBA.Domain\obj\Debug\netstandard2.0\NBA.Domain.pdb
+C:\Projects\NBA\NBA.Domain\obj\Debug\netstandard2.0\NBA.Domain.csprojAssemblyReference.cache

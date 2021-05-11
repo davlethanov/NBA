@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NBA.ApplicationCore.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using NBA.Domain.Entities;
 
 namespace NBA.Infrastructure.Data
 {

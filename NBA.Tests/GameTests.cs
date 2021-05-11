@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
-using NBA.ApplicationCore.Models;
-using NBA.ApplicationCore.Rules;
+using NBA.Domain.Base;
+using NBA.Domain.Entities;
+using NBA.Domain.Rules;
 using System;
 using System.Collections.Generic;
 using System.Text;

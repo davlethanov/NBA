@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NBA.ApplicationCore.Models;
+using NBA.Domain.Interfaces;
+using NBA.Domain.Base;
 using NBA.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace NBA.Infrastructure.Repositories
 
         public async Task DeleteAsync(Guid id)
         {
-            var entity = await GetAcync(id);
+            var entity = await GetAsync(id);
 
             if (entity != null)
             {
@@ -34,7 +35,7 @@ namespace NBA.Infrastructure.Repositories
             }
         }
 
-        public abstract Task<T> GetAcync(Guid id);
+        public abstract Task<T> GetAsync(Guid id);
 
         public void UpdateAsync(T entity)
         {
