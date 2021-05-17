@@ -11,7 +11,7 @@ namespace NBA.ApplicationCore.Interfaces
         Task<GameDto> GetAsync(Guid id);
         Task<GameDto[]> GetAllAsync();
         Task<Guid> CreateAsync(GameDto gameDto);
-        Task UpdateAsync(GameDto gameDto);
         Task DeleteAsync(Guid id);
+        Task SetScore(Guid Id, ScoreDto scoreDto);
     }
 }

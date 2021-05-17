@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace NBA.Infrastructure.Repositories
 {
@@ -24,7 +25,17 @@ namespace NBA.Infrastructure.Repositories
 
         public async Task<Game[]> GetAllAsync()
         {
-            return await dbContext.Set<Game>().ToArrayAsync();
+            return await dbContext.Set<Game>()
+                    .Include(g => g.AwayTeam)
+                    .Include(g => g.HomeTeam)
+                    .OrderBy(g => g.Date)
+                    .ToArrayAsync();
+        }
+
+        public async Task DeleteByTeamAsync(Guid teamId)
+        {
+            var games = await dbContext.Set<Game>().Where(g => g.AwayTeamId == teamId || g.HomeTeamId == teamId).ToArrayAsync();
+            dbContext.Set<Game>().RemoveRange(games);
         }
     }
 }

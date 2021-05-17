@@ -9,7 +9,9 @@ namespace NBA.ApplicationCore.DTO
     {
         public Guid Id { get; set; }
         public Guid AwayTeamId { get; set; }
+        public string AwayTeamName { get; set; }
         public Guid HomeTeamId { get; set; }
+        public string HomeTeamName { get; set; }
         public DateTime Date { get; set; }
 
         public int? AwayTeamScore { get; set; }
@@ -21,7 +23,9 @@ namespace NBA.ApplicationCore.DTO
             {
                 Id = entity.Id,
                 AwayTeamId = entity.AwayTeamId,
+                AwayTeamName = entity.AwayTeam.Name,
                 HomeTeamId = entity.HomeTeamId,
+                HomeTeamName = entity.HomeTeam.Name,
                 Date = entity.Date,
 
                 AwayTeamScore = entity.Score?.AwayTeamScore,

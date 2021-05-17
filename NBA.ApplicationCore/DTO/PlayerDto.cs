@@ -12,7 +12,8 @@ namespace NBA.ApplicationCore.DTO
         public string SecondName { get; set; }
         public DateTime BirthDate { get; set; }
         public Guid? TeamId { get; set; }
-        public int? Number { get; set; }
+        public string TeamName { get; set; }
+        public int? TeamNumber { get; set; }
 
         public static PlayerDto FromEntity(Player entity)
         {
@@ -23,7 +24,8 @@ namespace NBA.ApplicationCore.DTO
                 SecondName = entity.SecondName,
                 BirthDate = entity.BirthDate,
                 TeamId = entity.TeamIdentity?.TeamId,
-                Number = entity.TeamIdentity?.Number,
+                TeamName = entity.TeamIdentity?.Team?.Name,
+                TeamNumber = entity.TeamIdentity?.Number,
             };
         }
     }

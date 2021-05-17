@@ -12,10 +12,16 @@ namespace NBA.ApplicationCore.Services
     public class TeamService : ITeamService
     {
         private readonly Func<NBADataContext, ITeamRepository> teamRepositoryFactory;
+        private readonly Func<NBADataContext, IPlayerRepository> playerRepositoryFactory;
+        private readonly Func<NBADataContext, IGameRepository> gameRepositoryFactory;
 
-        public TeamService(Func<NBADataContext, ITeamRepository> teamRepositoryFactory)
+        public TeamService(Func<NBADataContext, ITeamRepository> teamRepositoryFactory,
+                            Func<NBADataContext, IPlayerRepository> playerRepositoryFactory,
+                            Func<NBADataContext, IGameRepository> gameRepositoryFactory)
         {
             this.teamRepositoryFactory = teamRepositoryFactory;
+            this.playerRepositoryFactory = playerRepositoryFactory;
+            this.gameRepositoryFactory = gameRepositoryFactory;
         }
 
         public async Task<TeamDto[]> GetAllAsync()
@@ -66,6 +72,11 @@ namespace NBA.ApplicationCore.Services
             using (var dataContext = new NBADataContext())
             {
                 var teamRepository = teamRepositoryFactory(dataContext);
+                var playerRepository = playerRepositoryFactory(dataContext);
+                var gameRepository = gameRepositoryFactory(dataContext);
+
+                await playerRepository.CancelTeamAsync(id);
+                await gameRepository.DeleteByTeamAsync(id);
                 await teamRepository.DeleteAsync(id);
                 await dataContext.SaveChangesAsync();
             }

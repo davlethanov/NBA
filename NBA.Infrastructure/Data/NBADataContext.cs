@@ -38,7 +38,7 @@ namespace NBA.Infrastructure.Data
 
         private static DbContextOptions GetDbContextOptions()
         {
-            var configFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\NBA.Web\client.config");
+            var configFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\NBA.AngularUI\client.config");
 
             var fileMap = new ExeConfigurationFileMap { ExeConfigFilename = configFilePath };
             var config = ConfigurationManager.OpenMappedExeConfiguration(fileMap, ConfigurationUserLevel.None);

@@ -22,6 +22,7 @@ namespace NBA.Domain.Entities
 
         public Game(Guid awayTeamId, Guid homeTeamId, DateTime date)
         {
+            CheckRule(new GameSholdBeBetweenDifferentTeamsRule(awayTeamId, homeTeamId));
             AwayTeamId = awayTeamId;
             HomeTeamId = homeTeamId;
             Date = date;

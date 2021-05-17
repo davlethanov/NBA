@@ -56,26 +56,24 @@ namespace NBA.ApplicationCore.Services
             }
         }
 
-        public async Task UpdateAsync(GameDto gameDto)
-        {
-            //using (var dataContext = new NBADataContext())
-            //{
-            //    var gameRepository = gameRepositoryFactory(dataContext);
-            //    var game = await gameRepository.GetAsync(gameDto.Id);
-            //    game.Set
-            //    game.SetCity(teamDto.City);
-            //    gameRepository.UpdateAsync(game);
-            //    await dataContext.SaveChangesAsync();
-            //}
-            await Task.CompletedTask;
-        }
-
         public async Task DeleteAsync(Guid id)
         {
             using (var dataContext = new NBADataContext())
             {
                 var gameRepository = gameRepositoryFactory(dataContext);
                 await gameRepository.DeleteAsync(id);
+                await dataContext.SaveChangesAsync();
+            }
+        }
+
+        public async Task SetScore(Guid id, ScoreDto scoreDto)
+        {
+            using (var dataContext = new NBADataContext())
+            {
+                var gameRepository = gameRepositoryFactory(dataContext);
+                var game = await gameRepository.GetAsync(id);
+                game.SetScore(scoreDto.AwayTeamScore, scoreDto.HomeTeamScore);
+                gameRepository.UpdateAsync(game);
                 await dataContext.SaveChangesAsync();
             }
         }

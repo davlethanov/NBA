@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace NBA.Infrastructure.Repositories
 {
@@ -23,7 +24,14 @@ namespace NBA.Infrastructure.Repositories
 
         public async Task<Player[]> GetAllAsync()
         {
-            return await dbContext.Set<Player>().ToArrayAsync();
+            return await dbContext.Set<Player>().Include(p => p.TeamIdentity.Team).ToArrayAsync();
+        }
+
+        public async Task CancelTeamAsync(Guid teamId)
+        {
+            var players = await dbContext.Set<Player>().Where(p => p.TeamIdentity.TeamId == teamId).ToListAsync();
+            players.ForEach(p => p.CancelTeamIdentity());
+            dbContext.Set<Player>().UpdateRange(players);
         }
     }
 }

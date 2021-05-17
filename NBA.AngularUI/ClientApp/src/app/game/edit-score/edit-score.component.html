@@ -1,0 +1,31 @@
+<div class="d-flex flex-row bd-highlight mb-3">
+    <div class="form-froup row">
+
+        <label class="col-sm-2 col-form-label">Away Team</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="awayTeamName" [readonly]="true">
+        </div>
+
+        <label class="col-sm-2 col-form-label">Home Team</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="homeTeamName" [readonly]="true">
+        </div>
+
+        <label class="col-sm-2 col-form-label">Date</label>
+        <div class="col-sm-10">
+            <input type="text" [(ngModel)]="date" [readonly]="true">
+        </div>
+
+        <label class="col-sm-2 col-form-label">Score</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" [(ngModel)]="awayTeamScore"
+            placeholder="away team score" class="col-sm-5">
+            <input type="number" class="form-control" [(ngModel)]="homeTeamScore"
+            placeholder="home team score" class="col-sm-5">
+        </div>
+    </div>
+</div>
+
+<button (click)="editScore()" class="btn btn-primary">
+    Edit score
+</button>

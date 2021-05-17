@@ -42,9 +42,9 @@ namespace NBA.ApplicationCore.Services
             {
                 var playerRepository = playerRepositoryFactory(dataContext);
                 var player = new Player(playerDto.FirstName, playerDto.SecondName, playerDto.BirthDate);
-                if (playerDto.TeamId.HasValue && playerDto.Number.HasValue)
+                if (playerDto.TeamId.HasValue && playerDto.TeamNumber.HasValue)
                 {
-                    player.SetTeamIdentity(playerDto.TeamId.Value, playerDto.Number.Value);
+                    player.SetTeamIdentity(playerDto.TeamId.Value, playerDto.TeamNumber.Value);
                 }
                 var id = (await playerRepository.AddAsync(player)).Id;
                 await dataContext.SaveChangesAsync();
@@ -61,9 +61,9 @@ namespace NBA.ApplicationCore.Services
                 player.SetFirstName(playerDto.FirstName);
                 player.SetSecondName(playerDto.SecondName);
                 player.SetBirthDate(playerDto.BirthDate);
-                if (playerDto.TeamId.HasValue && playerDto.Number.HasValue)
+                if (playerDto.TeamId.HasValue && playerDto.TeamNumber.HasValue)
                 {
-                    player.SetTeamIdentity(playerDto.TeamId.Value, playerDto.Number.Value);
+                    player.SetTeamIdentity(playerDto.TeamId.Value, playerDto.TeamNumber.Value);
                 }
                 else
                 {
@@ -79,6 +79,7 @@ namespace NBA.ApplicationCore.Services
             {
                 var playerRepository = playerRepositoryFactory(dataContext);
                 await playerRepository.DeleteAsync(id);
+                await dataContext.SaveChangesAsync();
             }
         }
     }

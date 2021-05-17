@@ -1,0 +1,39 @@
+<div class="d-flex flex-row bd-highlight mb-3">
+    <div class="form-froup row">
+
+        <label class="col-sm-2 col-form-label">Away Team</label>
+        <div class="col-sm-10">
+        <select class="form-control" [(ngModel)]="awayTeamId">
+            <option *ngFor="let team of teams" [ngValue]="team.id">
+                {{team.name}}
+            </option>
+        </select>
+        </div>
+
+        <label class="col-sm-2 col-form-label">Home Team</label>
+        <div class="col-sm-10">
+        <select class="form-control" [(ngModel)]="homeTeamId">
+            <option *ngFor="let team of teams" [ngValue]="team.id">
+                {{team.name}}
+            </option>
+        </select>
+        </div>
+
+        <label class="col-sm-2 col-form-label">Date</label>
+        <div class="col-sm-10">
+            <input type="date"  [(ngModel)]="date">
+        </div>
+
+        <label class="col-sm-2 col-form-label">Score</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" [(ngModel)]="awayTeamScore"
+            placeholder="away team score" class="col-sm-5">
+            <input type="number" class="form-control" [(ngModel)]="homeTeamScore"
+            placeholder="home team score" class="col-sm-5">
+        </div>
+    </div>
+</div>
+
+<button (click)="addGame()" class="btn btn-primary">
+    Add
+</button>

@@ -1,0 +1,47 @@
+<div class="d-flex flex-row bd-highlight mb-3">
+
+    <div class="form-froup row" style="width: 60%;">
+    
+        <label class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="firstName"
+            placeholder="Enter First Name">
+        </div>
+
+        <label class="col-sm-2 col-form-label">Second Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="secondName"
+            placeholder="Enter Second Name">
+        </div>
+    
+        <label class="col-sm-2 col-form-label">Team</label>
+        <div class="col-sm-10">
+           <select class="form-control" [(ngModel)]="teamId">
+               <option [ngValue]="null"></option>
+               <option *ngFor="let team of teams" [ngValue]="team.id">
+                   {{team.name}}
+               </option>
+           </select>
+        </div>
+    
+        <label class="col-sm-2 col-form-label" *ngIf="teamId!=null">Team Number</label>
+        <div class="col-sm-10" *ngIf="teamId!=null">
+            <input type="number" class="form-control" [(ngModel)]="teamNumber"
+            placeholder="Enter Team Number">
+        </div>
+
+        <label class="col-sm-2 col-form-label">Birthdate</label>
+        <div class="col-sm-10">
+            <input type="date"  [(ngModel)]="birthDate">
+        </div>
+
+    </div>
+</div>    
+
+<button (click)="addPlayer()" *ngIf="player.id=='00000000-0000-0000-0000-000000000000'" class="btn btn-primary">
+    Add
+</button>
+
+<button (click)="updatePlayer()" *ngIf="player.id!='00000000-0000-0000-0000-000000000000'" class="btn btn-primary">
+    Update
+</button>
