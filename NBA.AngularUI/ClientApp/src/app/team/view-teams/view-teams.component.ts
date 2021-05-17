@@ -12,10 +12,13 @@ export class ViewTeamsComponent implements OnInit {
   constructor(private service:SharedService) { }
 
   teams: Team[];
+  teamsWithoutFilter: Team[];
   
   team: Team;
   ModalTitle: string;
   ActivateAddEditTeam: boolean;
+
+  nameFilter: string = "";
 
   ngOnInit() {
     this.ActivateAddEditTeam=false;
@@ -25,7 +28,8 @@ export class ViewTeamsComponent implements OnInit {
   refreshTeams(){
     this.service.getTeams().subscribe(
       result => {
-        this.teams=result;
+        this.teams = result;
+        this.teamsWithoutFilter = result;
       },
       error => {
         alert("Error! More information in console");
@@ -75,4 +79,13 @@ export class ViewTeamsComponent implements OnInit {
     this.refreshTeams();
   }
 
+  sortResult(prop, asc){
+    this.teams = this.teams.sort(function(a,b){
+      if(asc){
+          return (a[prop]>b[prop])?1 : ((a[prop]<b[prop]) ?-1 :0);
+      }else{
+        return (b[prop]>a[prop])?1 : ((b[prop]<a[prop]) ?-1 :0);
+      }
+    })
+  }
 }
